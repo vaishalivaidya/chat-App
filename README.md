@@ -39,7 +39,7 @@ step-4 Set up environment variables:
 >- Replace <your-jwt-secret> with a secret key of your choice.
 
 ```bash
-MONGO_URL="mongodb+srv://vaidyavaishaliabc12:20April1999@cluster0.azybvnx.mongodb.net/?retryWrites=true&w=majority"
+MONGO_URL="mongodb+srv://<Database- URL>"
 JWT_SECRET="kncdkjkvvjkijdvjvdjvhjvdjjhvfnfjvjvnjvjdnj"
 CLIENT_URL="http://127.0.0.1:5173" 
 ```
@@ -49,7 +49,7 @@ step-5: Start the development server:
 >- Server: In the server directory, run npm run dev.
 >- Client: In the client directory, run npm start.
 
-step-6: Open your browser and navigate to http://localhost:3000 to access the application.
+step-6: Open your browser and navigate to http://localhost:5173/ to access the application.
 
 ## Project Structure
 1. server: Contains the backend server code.
@@ -58,6 +58,8 @@ step-6: Open your browser and navigate to http://localhost:3000 to access the ap
 >- models: Contains the data models for the application.
 >- routes: Defines the API routes and maps them to the corresponding controller functions.
 >- utils: Contains utility functions used throughout the application.
+>- added env file for client
+
 2. client: Contains the frontend React application.
 >- src: Contains the application source code.
 >- components: Contains reusable React components used throughout the application.
@@ -66,4 +68,7 @@ step-6: Open your browser and navigate to http://localhost:3000 to access the ap
 >- services: Contains utility functions for making API requests to the backend.
 >- styles: Contains CSS styles for the application.
 >- utils: Contains utility functions used throughout the application.
-
+>- add env file for server
+```
+       SERVER_URL="http://localhost:4040"
+```

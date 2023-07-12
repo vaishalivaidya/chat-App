@@ -11,14 +11,19 @@ const ws = require('ws');
 const fs = require('fs');
 
 dotenv.config();
-mongoose.connect('mongodb+srv://vaishu:20April1999@cluster0.n71rtsx.mongodb.net/?retryWrites=true&w=majority');
+const MONGOURL= process.env.MONGO_URL;
+console.log('MongoUrl='+MONGOURL)
+mongoose.connect(MONGOURL);
 mongoose.connection.once('open',()=> 
 console.log('Connected to database'))
 
 
-const jwtSecret = ("kncdkjkvvjkijdvjvdjvhjvdjjhvfnfjvjvnjvjdnj");
-//const jwtSecret = process.env.JWT_SECRET;
+const jwtSecret = process.env.JWT_SECRET; 
+console.log('JwtSecret='+jwtSecret);
 const bcryptSalt = bcrypt.genSaltSync(10);
+
+const clientUrl = process.env.CLIENT_URL;//'http://localhost:5173'
+console.log('clientUrl='+clientUrl);
 
 const app = express();
 app.use('/uploads', express.static(__dirname + '/uploads'));
@@ -26,7 +31,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
   credentials: true,
-  origin: 'http://localhost:5173',
+  origin: clientUrl,
 }));
 
 async function getUserDataFromRequest(req) {
@@ -120,7 +125,7 @@ const server = app.listen(4040,()=>{ console.log("Server started on port 4040");
 
 const wss = new ws.WebSocketServer({server});
 wss.on('connection', (connection, req) => {
-
+  console.log("new connection")
   function notifyAboutOnlinePeople() {
     [...wss.clients].forEach(client => {
       client.send(JSON.stringify({
