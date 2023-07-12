@@ -58,7 +58,7 @@ step-6: Open your browser and navigate to http://localhost:5173/ to access the a
 >- models: Contains the data models for the application.
 >- routes: Defines the API routes and maps them to the corresponding controller functions.
 >- utils: Contains utility functions used throughout the application.
->- added env file for client
+
 
 2. client: Contains the frontend React application.
 >- src: Contains the application source code.
@@ -68,7 +68,6 @@ step-6: Open your browser and navigate to http://localhost:5173/ to access the a
 >- services: Contains utility functions for making API requests to the backend.
 >- styles: Contains CSS styles for the application.
 >- utils: Contains utility functions used throughout the application.
->- add env file for server
 ```
        SERVER_URL="http://localhost:4040"
 ```
