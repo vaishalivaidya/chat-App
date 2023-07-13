@@ -68,6 +68,7 @@ step-6: Open your browser and navigate to http://localhost:5173/ to access the a
 >- services: Contains utility functions for making API requests to the backend.
 >- styles: Contains CSS styles for the application.
 >- utils: Contains utility functions used throughout the application.
+>- add env files
 ```
        SERVER_URL="http://localhost:4040"
 ```
