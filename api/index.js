@@ -72,11 +72,14 @@ app.get('/people', async (req,res) => {
 app.get('/profile', (req,res) => {
   const token = req.cookies?.token;
   if (token) {
+    console.log(""+req.ip+ " -- /profile");
     jwt.verify(token, jwtSecret, {}, (err, userData) => {
       if (err) throw err;
       res.json(userData);
+      console.log(""+req.ip+ " -- profileData sent")
     });
   } else {
+    console.log(""+req.ip+ " -- profile --NoToken");
     res.status(401).json('no token');
   }
 });
